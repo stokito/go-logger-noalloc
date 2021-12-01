@@ -8,6 +8,12 @@ Log.Printf(logger.PREF_LOG_INFO + "Executing something\n")
 ```
 So info record will be printed as `<6>Executing something` and the `<6>` here is a syslog prefix for INFO level.
 
+## Install
+
+    go get -u github.com/stokito/go-logger-noalloc@v1.0.0
+
+## Usage
+
 ```go
 package main
 
@@ -39,3 +45,6 @@ func main() {
 	Log.Printf(logger.PREF_LOG_INFO + "But INFO now won't be printed\n")
 }
 ```
+
+See [example](examples/log_example.go)
+
