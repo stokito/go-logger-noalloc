@@ -1,5 +1,5 @@
 # go-logger-noalloc
-Essential logger that avoids memory allocation. Intended for a high performance systems.
+Essential logger that avoids memory allocation (zero alloc). Intended for a high performance systems.
 That's why a stack trace is not printed.
 It prints in syslog format so later it can be easily be processed by journald from systemd.
 For example:
