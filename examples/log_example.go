@@ -6,7 +6,7 @@ import (
 )
 
 // Log Prints everything to STDOUT but only if log level higher than INFO
-var Log = &logger.Logger{Out: os.Stdin, LogLevel: logger.LOG_INFO}
+var Log = &logger.Logger{Out: os.Stdout, LogLevel: logger.LOG_INFO}
 
 func main() {
 	// Log level must be concatenated as a prefix. The \n is required at end.
