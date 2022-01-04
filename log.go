@@ -23,12 +23,12 @@ const (
 )
 
 const (
-	PREF_LOG_CRIT    = "<2>"
-	PREF_LOG_ERR     = "<3>"
-	PREF_LOG_WARNING = "<4>"
-	PREF_LOG_NOTICE  = "<5>"
-	PREF_LOG_INFO    = "<6>"
-	PREF_LOG_DEBUG   = "<7>"
+	CRIT   = "<2>"
+	ERR    = "<3>"
+	WARN   = "<4>"
+	NOTICE = "<5>"
+	INFO   = "<6>"
+	DEBUG  = "<7>"
 )
 
 type Logger struct {
@@ -50,7 +50,7 @@ func (l *Logger) Printf(format string, v ...interface{}) {
 }
 
 func (l *Logger) Fatal(v ...interface{}) {
-	l.Printf(PREF_LOG_CRIT+"%s\n", v...)
+	l.Printf(CRIT+"%s\n", v...)
 	os.Exit(1)
 }
 
