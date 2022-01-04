@@ -31,6 +31,8 @@ const (
 	DEBUG  = "<7>"
 )
 
+var logStdOut = &Logger{Out: os.Stdout, LogLevel: LOG_INFO}
+
 type Logger struct {
 	Out      io.Writer // destination for output
 	LogLevel Priority
@@ -58,4 +60,16 @@ func (l *Logger) IsLoggable(logLevel Priority) bool {
 	// errors are always logged
 	return logLevel <= LOG_ERR ||
 		logLevel <= l.LogLevel
+}
+
+func Printf(format string, v ...interface{}) {
+	logStdOut.Printf(format, v)
+}
+
+func IsLoggable(logLevel Priority) bool {
+	return logStdOut.IsLoggable(logLevel)
+}
+
+func Fatal(format string, v ...interface{}) {
+	logStdOut.Fatal(format, v)
 }

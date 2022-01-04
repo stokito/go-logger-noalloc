@@ -9,6 +9,9 @@ import (
 var Log = &olog.Logger{Out: os.Stdout, LogLevel: olog.LOG_INFO}
 
 func main() {
+	// globally write to STDOUT
+	olog.Printf(olog.DEBUG + "Debug message to STDOUT\n")
+
 	// Log level must be concatenated as a prefix. The \n is required at end.
 	Log.Printf(olog.DEBUG+"Trace logging of vars like arg[0]: %s\n", os.Args[0])
 	// Try to avoid unnecessary calculations if the DEBUG is anyway disabled
