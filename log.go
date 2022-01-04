@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: 0BSD
-package logger
+package olog
 
 import (
 	"fmt"
