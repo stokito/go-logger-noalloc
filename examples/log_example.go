@@ -1,7 +1,7 @@
 package main
 
 import (
-	olog "github.com/stokito/go-logger-noalloc"
+	"github.com/stokito/go-logger-noalloc"
 	"os"
 )
 

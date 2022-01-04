@@ -10,7 +10,7 @@ So info record will be printed as `<6>Executing something` and the `<6>` here is
 
 ## Install
 
-    go get -u github.com/stokito/go-logger-noalloc@v1.1.1
+    go get -u github.com/stokito/go-logger-noalloc@v1.1.2
 
 ## Usage
 
@@ -18,7 +18,7 @@ So info record will be printed as `<6>Executing something` and the `<6>` here is
 package main
 
 import (
-	olog "github.com/stokito/go-logger-noalloc"
+	"github.com/stokito/go-logger-noalloc"
 	"os"
 )
 
