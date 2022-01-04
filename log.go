@@ -39,7 +39,7 @@ type Logger struct {
 	mu       sync.Mutex // ensures atomic writes
 }
 
-func (l *Logger) Printf(format string, v ...interface{}) {
+func (l *Logger) Printf(format string, v ...any) {
 	// Priority prefix looks like <6> we get the 6 from it
 	prioChar := format[1:2][0]
 	prio := Priority(prioChar - '0')
@@ -51,7 +51,7 @@ func (l *Logger) Printf(format string, v ...interface{}) {
 	l.mu.Unlock()
 }
 
-func (l *Logger) Fatal(v ...interface{}) {
+func (l *Logger) Fatal(v ...any) {
 	l.Printf(CRIT+"%s\n", v...)
 	os.Exit(1)
 }
@@ -62,7 +62,7 @@ func (l *Logger) IsLoggable(logLevel Priority) bool {
 		logLevel <= l.LogLevel
 }
 
-func Printf(format string, v ...interface{}) {
+func Printf(format string, v ...any) {
 	logStdOut.Printf(format, v)
 }
 
