@@ -70,6 +70,6 @@ func IsLoggable(logLevel Priority) bool {
 	return logStdOut.IsLoggable(logLevel)
 }
 
-func Fatal(format string, v ...interface{}) {
+func Fatal(format string, v ...any) {
 	logStdOut.Fatal(format, v)
 }
