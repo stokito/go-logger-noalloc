@@ -43,12 +43,11 @@ func (l *Logger) Printf(format string, v ...any) {
 	// Priority prefix looks like <6> we get the 6 from it
 	prioChar := format[1:2][0]
 	prio := Priority(prioChar - '0')
-	if !l.IsLoggable(prio) {
-		return
+	if l.IsLoggable(prio) {
+		l.mu.Lock()
+		fmt.Fprintf(l.Out, format, v...)
+		l.mu.Unlock()
 	}
-	l.mu.Lock()
-	fmt.Fprintf(l.Out, format, v...)
-	l.mu.Unlock()
 }
 
 func (l *Logger) Fatal(v ...any) {
