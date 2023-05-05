@@ -12,7 +12,7 @@ import (
 type Priority int
 
 const (
-	LOG_EMERG Priority = iota
+	LOG_EMERG Priority = iota + '0'
 	LOG_ALERT
 	LOG_CRIT
 	LOG_ERR
@@ -46,7 +46,7 @@ func (l *Logger) Printf(format string, v ...any) {
 	}
 	// Priority prefix looks like <6> we get the 6 from it
 	prioChar := format[1]
-	prio := Priority(prioChar - '0')
+	prio := Priority(prioChar)
 	if l.IsLoggable(prio) {
 		l.mu.Lock()
 		fmt.Fprintf(l.Out, format, v...)
