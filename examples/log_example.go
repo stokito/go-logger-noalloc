@@ -11,6 +11,7 @@ var Log = &olog.Logger{Out: os.Stdout, LogLevel: olog.LOG_INFO}
 func main() {
 	// globally write to STDOUT
 	olog.Printf(olog.DEBUG + "Debug message to STDOUT\n")
+	olog.ErrPrintf(olog.ERR + "Error message to STDERR\n")
 
 	// Log level must be concatenated as a prefix. The \n is required at end.
 	Log.Printf(olog.DEBUG+"Trace logging of vars like arg[0]: %s\n", os.Args[0])
