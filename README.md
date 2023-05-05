@@ -4,13 +4,13 @@ That's why a stack trace is not printed and you must always put a method name or
 It prints in syslog format so later it can be easily be processed by journald from systemd.
 For example:
 ```go
-Log.Printf(logger.PREF_LOG_INFO + "Executing something\n")
+olog.Printf(olog.INFO + "Executing something\n")
 ```
 So info record will be printed as `<6>Executing something` and the `<6>` here is a syslog prefix for INFO level.
 
 ## Install
 
-    go get -u github.com/stokito/go-logger-noalloc@v1.1.2
+    go get -u github.com/stokito/go-logger-noalloc
 
 ## Usage
 
