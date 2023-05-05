@@ -54,8 +54,8 @@ func (l *Logger) Printf(format string, v ...any) {
 	}
 }
 
-func (l *Logger) Fatal(v ...any) {
-	l.Printf(CRIT+"%s\n", v...)
+func (l *Logger) Fatalf(format string, v ...any) {
+	l.Printf(CRIT+format, v...)
 	os.Exit(1)
 }
 
@@ -67,7 +67,7 @@ func (l *Logger) IsLoggable(logLevel Priority) bool {
 // shorthand functions for stdout
 
 func Printf(format string, v ...any) {
-	logStdOut.Printf(format, v)
+	logStdOut.Printf(format, v...)
 }
 
 func IsLoggable(logLevel Priority) bool {
@@ -78,14 +78,14 @@ func SetLogLevel(logLevel Priority) {
 	logStdOut.LogLevel = logLevel
 }
 
-func Fatal(format string, v ...any) {
-	logStdOut.Fatal(format, v)
+func Fatalf(format string, v ...any) {
+	logStdOut.Fatalf(format, v...)
 }
 
 // shorthand functions for stderr
 
 func ErrPrintf(format string, v ...any) {
-	logStdErr.Printf(format, v)
+	logStdErr.Printf(format, v...)
 }
 
 func ErrIsLoggable(logLevel Priority) bool {
@@ -96,6 +96,6 @@ func ErrSetLogLevel(logLevel Priority) {
 	logStdErr.LogLevel = logLevel
 }
 
-func ErrFatal(format string, v ...any) {
-	logStdErr.Fatal(format, v)
+func ErrFatalf(format string, v ...any) {
+	logStdErr.Fatalf(format, v...)
 }

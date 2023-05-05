@@ -32,4 +32,5 @@ func main() {
 	Log.LogLevel = olog.LOG_EMERG
 	Log.Printf(olog.ERR + "...and any error will be anyway printed\n")
 	Log.Printf(olog.INFO + "But INFO now won't be printed\n")
+	olog.ErrFatalf("%s\n", "fatal error")
 }
