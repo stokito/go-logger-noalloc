@@ -61,8 +61,7 @@ func (l *Logger) Fatal(v ...any) {
 
 func (l *Logger) IsLoggable(logLevel Priority) bool {
 	// errors are always logged
-	return logLevel <= LOG_ERR ||
-		logLevel <= l.LogLevel
+	return logLevel <= l.LogLevel
 }
 
 // shorthand functions for stdout
