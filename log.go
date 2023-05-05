@@ -32,6 +32,7 @@ const (
 )
 
 var logStdOut = &Logger{Out: os.Stdout, LogLevel: LOG_INFO}
+var logStdErr = &Logger{Out: os.Stderr, LogLevel: LOG_INFO}
 
 type Logger struct {
 	Out      io.Writer // destination for output
@@ -61,6 +62,8 @@ func (l *Logger) IsLoggable(logLevel Priority) bool {
 		logLevel <= l.LogLevel
 }
 
+// shorthand functions for stdout
+
 func Printf(format string, v ...any) {
 	logStdOut.Printf(format, v)
 }
@@ -71,4 +74,18 @@ func IsLoggable(logLevel Priority) bool {
 
 func Fatal(format string, v ...any) {
 	logStdOut.Fatal(format, v)
+}
+
+// shorthand functions for stderr
+
+func ErrPrintf(format string, v ...any) {
+	logStdErr.Printf(format, v)
+}
+
+func ErrIsLoggable(logLevel Priority) bool {
+	return logStdErr.IsLoggable(logLevel)
+}
+
+func ErrFatal(format string, v ...any) {
+	logStdErr.Fatal(format, v)
 }
