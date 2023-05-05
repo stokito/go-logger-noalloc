@@ -41,8 +41,11 @@ type Logger struct {
 }
 
 func (l *Logger) Printf(format string, v ...any) {
+	if len(format) < 4 {
+		return
+	}
 	// Priority prefix looks like <6> we get the 6 from it
-	prioChar := format[1:2][0]
+	prioChar := format[1]
 	prio := Priority(prioChar - '0')
 	if l.IsLoggable(prio) {
 		l.mu.Lock()
