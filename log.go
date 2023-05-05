@@ -74,6 +74,10 @@ func IsLoggable(logLevel Priority) bool {
 	return logStdOut.IsLoggable(logLevel)
 }
 
+func SetLogLevel(logLevel Priority) {
+	logStdOut.LogLevel = logLevel
+}
+
 func Fatal(format string, v ...any) {
 	logStdOut.Fatal(format, v)
 }
@@ -86,6 +90,10 @@ func ErrPrintf(format string, v ...any) {
 
 func ErrIsLoggable(logLevel Priority) bool {
 	return logStdErr.IsLoggable(logLevel)
+}
+
+func ErrSetLogLevel(logLevel Priority) {
+	logStdErr.LogLevel = logLevel
 }
 
 func ErrFatal(format string, v ...any) {
