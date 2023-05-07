@@ -48,14 +48,18 @@ func (l *Logger) Printf(format string, v ...any) {
 	prioChar := format[1]
 	prio := Priority(prioChar)
 	if l.IsLoggable(prio) {
-		l.mu.Lock()
-		fmt.Fprintf(l.Out, format, v...)
-		l.mu.Unlock()
+		l.printfBlocking(format, v...)
 	}
 }
 
+func (l *Logger) printfBlocking(format string, v ...any) {
+	l.mu.Lock()
+	_, _ = fmt.Fprintf(l.Out, format, v...)
+	l.mu.Unlock()
+}
+
 func (l *Logger) Fatalf(format string, v ...any) {
-	l.Printf(CRIT+format, v...)
+	l.printfBlocking(CRIT+format, v...)
 	os.Exit(1)
 }
 
