@@ -55,3 +55,6 @@ See [example](examples/log_example.go)
 
 ## License
 [0BSD](https://opensource.org/licenses/0BSD) (similar to Public Domain)
+
+## See also
+* [logrus-systemd-formatter](https://github.com/quillaja/logrus-systemd-formatter)
